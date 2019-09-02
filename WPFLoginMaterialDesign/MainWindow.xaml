@@ -11,6 +11,11 @@
         WindowStyle="None" ResizeMode="NoResize"
         MouseDown="Window_MouseDown">
 
+    <!-- 
+        Watermarked
+        https://code-examples.net/en/q/cb997
+    -->
+    
     <Grid>
         <Grid.Resources>
             <Style x:Key="placeHolder" TargetType="{x:Type TextBox}" 

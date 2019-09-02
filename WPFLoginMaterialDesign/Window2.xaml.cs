@@ -15,19 +15,13 @@ using System.Windows.Shapes;
 namespace WPFLoginMaterialDesign
 {
     /// <summary>
-    /// Interaction logic for Window1.xaml
+    /// Interaction logic for Window2.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class Window2 : Window
     {
-        public event TextChangedEventHandler TextChanged;
-
-        public Window1()
+        public Window2()
         {
             InitializeComponent();
         }
-
-        #region -- Warmark --
-
-        #endregion
     }
 }

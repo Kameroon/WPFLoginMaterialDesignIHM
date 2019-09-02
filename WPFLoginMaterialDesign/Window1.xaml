@@ -6,6 +6,12 @@
         xmlns:local="clr-namespace:WPFLoginMaterialDesign"
         mc:Ignorable="d"
         Title="Window1" Height="450" Width="800">
+
+    <!-- 
+        Watermarked
+        https://code-examples.net/en/q/cb997
+    -->
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="50"/>
@@ -21,7 +27,7 @@
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="1">
+        <!--<StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="1">
             <TextBox x:Name="OrderTxt" HorizontalAlignment="Left" VerticalAlignment="Top" 
                      VerticalContentAlignment="Center" Margin="10,10,0,0" Width="188" Height="32"/>
 
@@ -34,7 +40,6 @@
                         <Setter Property="Margin" Value="{Binding Margin}"/>
                         <Setter Property="VerticalAlignment" Value="{Binding VerticalAlignment}"/>
                         <Setter Property="HorizontalAlignment" Value="{Binding HorizontalAlignment}"/>
-                        <!--<Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment}"/>-->
                         <Style.Triggers>
                             <DataTrigger Binding="{Binding Text}" Value="">
                                 <Setter Property="Visibility" Value="Visible"/>
@@ -43,25 +48,69 @@
                     </Style>
                 </TextBlock.Style>
             </TextBlock>
+        </StackPanel>-->
 
-            <TextBox >
-                <TextBox.Style>
-                    <Style TargetType="{x:Type TextBlock}">
-                        <Setter Property="Visibility" Value="Collapsed"/>
-                        <Setter Property="Width" Value="{Binding Width}"/>
-                        <Setter Property="Height" Value="{Binding Height}"/>
-                        <Setter Property="Margin" Value="{Binding Margin}"/>
-                        <Setter Property="VerticalAlignment" Value="{Binding VerticalAlignment}"/>
-                        <Setter Property="HorizontalAlignment" Value="{Binding HorizontalAlignment}"/>
-                        <!--<Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment}"/>-->
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding Text}" Value="">
-                                <Setter Property="Visibility" Value="Visible"/>
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </TextBox.Style>
-            </TextBox>
+        <StackPanel  Grid.Column="1" Grid.Row="1">
+            <Grid Width="300" Margin="0, 20, 0, 0" 
+                  FocusManager.FocusedElement="{Binding ElementName=UsernameBox}">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBox Grid.Row="0" x:Name="UsernameBox" Text="{Binding Path=Username,
+                         Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         Background="Transparent" BorderBrush="Transparent" BorderThickness="0"
+                         Foreground="Black" Panel.ZIndex="2" CaretBrush="DimGray" FontSize="12"
+                         FocusManager.IsFocusScope="True"/>
+
+                <TextBox Grid.Row="0" Text="Username" Background="Transparent" BorderBrush="DimGray"
+                         BorderThickness="0 0 0 1" FontSize="12" FocusManager.IsFocusScope="False">
+                    <!--<TextBox.Style>
+                        <Style TargetType="{x:Type TextBox}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=Username, Mode=OneWay, Converter={StaticResource Empty2BoolConverter}}"
+                                            Value="False">
+                                    <Setter Property="Foreground" Value="Transparent"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=Username, Mode=OneWay, Converter={StaticResource Empty2BoolConverter}}"
+                                             Value="True">
+                                    <Setter Property="Foreground" Value="DimGray"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>-->
+                </TextBox>
+            </Grid>
+
+            <Grid Width="300" Margin="0, 20, 0, 0" 
+                  FocusManager.FocusedElement="{Binding ElementName=UserPasswordBox}">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <PasswordBox Grid.Row="0" x:Name="UserPasswordBox" Background="Transparent" BorderBrush="Transparent" 
+                             BorderThickness="0" Foreground="Black" Panel.ZIndex="2" CaretBrush="DimGray" FontSize="12"
+                             FocusManager.IsFocusScope="True"/>
+                <!--PasswordChanged="OnPasswordChange"-->
+                <TextBox Grid.Row="0" Text="Password" Background="Transparent" BorderBrush="DimGray"
+                         BorderThickness="0 0 0 1" FontSize="12" FocusManager.IsFocusScope="False">
+                    <!--<TextBox.Style>
+                        <Style TargetType="{x:Type TextBox}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=Password,
+                                                       Mode=OneWay,
+                                                       Converter={StaticResource Empty2BoolConverter}}"
+                                                       Value="False">
+                                    <Setter Property="Foreground" Value="Transparent"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=Password, Mode=OneWay,
+                                                       Converter={StaticResource Empty2BoolConverter}}"
+                                             Value="True">
+                                    <Setter Property="Foreground" Value="DimGray"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>-->
+                </TextBox>
+            </Grid>
         </StackPanel>
     </Grid>
 </Window>
